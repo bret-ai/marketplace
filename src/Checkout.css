@@ -16,3 +16,7 @@
   padding: 10px;
   border-bottom: 1px solid lightgray;
 }
+
+.checkout__right {
+  -ms-flex-item-align: end;
+}

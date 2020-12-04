@@ -2,35 +2,24 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "./firebase";
-import { useStateValue } from "./StateProvider";
+
 
 function Login() {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [walletAddress, setWalletAddress] = useState("");
+  
 
-  const [{ }, dispatch] = useStateValue();
-
-
-  const walletId = (e) => {
+  const signIn = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "SET_WALLETID",
-      userWallet: walletAddress,
-    });
-  }
 
-  // const signIn = (e) => {
-  //   e.preventDefault();
-
-  //   auth
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then((auth) => {
-  //       history.push("/");
-  //     })
-  //     .catch((error) => alert(error.message));
-  // };
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((auth) => {
+        history.push("/");
+      })
+      .catch((error) => alert(error.message));
+  };
 
   const register = (e) => {
     e.preventDefault();
@@ -69,12 +58,12 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <h5>Wallet Address</h5>
+          {/* <h5>Wallet Address</h5>
           <input
             type="text"
             value={walletAddress}
             onChange={(e) => setWalletAddress(e.target.value)}
-          />
+          /> */}
 
           <h5>Password</h5>
           <input
@@ -85,7 +74,7 @@ function Login() {
 
           <button
             type="submit"
-            // onClick={signIn}
+            onClick={signIn}
             className="login__signInButton"
           >
             Sign In
@@ -98,7 +87,7 @@ function Login() {
           Interest-Based Ads Notice.
         </p>
 
-        <button onClick={walletId && register} className="login__registerButton">
+        <button onClick={register} className="login__registerButton">
           Create your Madini Account
         </button>
       </div>
