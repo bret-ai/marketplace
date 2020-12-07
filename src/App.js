@@ -4,7 +4,7 @@ import Header from "./Header";
 import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "./Checkout";
-import Login from "./Login";
+import SignInSide from "./SignInSide";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
@@ -12,6 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Orders";
 import Dashboard from "./Dashboard";
+import SignUp from "./SignUp";
 
 const promise = loadStripe(
   "pk_test_51HQXcNBgXXR504kqVkiIAuJBQhqQvCgqXxQuTOmCeXBA6HTdIdPJgWSeRHeYkZ1FH35NvvraVQGLA6g4YsyigYOt00vUI1F1yh"
@@ -53,8 +54,11 @@ function App() {
             <Orders />
           </Route>
           <Route path="/login">
-            <Login />
+            <SignInSide />
           </Route>
+          <Route path="/signup">
+            <SignUp />
+          </Route>          
           <Route path="/checkout">
             <Header />
             <Checkout />

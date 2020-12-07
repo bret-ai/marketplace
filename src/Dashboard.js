@@ -22,6 +22,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './RecentOrders';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 function Copyright() {
   return (
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    background: 'linear-gradient(45deg, #333 30%, #FF8E53 90%)',
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -147,9 +149,14 @@ export default function Dashboard() {
           </Typography>
           <IconButton color="inherit">
             <Badge color="secondary">
-              <ContactSupportOutlinedIcon />
+              <AccountCircleIcon />
             </Badge>
           </IconButton>
+          <IconButton color="inherit">
+            <Badge color="secondary">
+              <ContactSupportOutlinedIcon />
+            </Badge>
+          </IconButton>          
         </Toolbar>
       </AppBar>
       <Drawer

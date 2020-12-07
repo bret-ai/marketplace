@@ -14,11 +14,11 @@ function createData(id, date, name, shipTo, transaction, amount) {
 }
 
 const rows = [
-  createData(0, '16 Nov, 2020', 'Elvis Presley', 'Tupelo, MS', 'VET ⠀0x756 •••• 2833', 312.44),
-  createData(1, '16 Nov, 2020', 'Paul McCartney', 'London, UK', 'MDN ⠀0x274 •••• 8394', 866.99),
-  createData(2, '16 Nov, 2020', 'Tom Scholz', 'Boston, MA', 'VET ⠀0x748 •••• 1938', 100.81),
-  createData(3, '16 Nov, 2020', 'Michael Jackson', 'Gary, IN', 'MDN ⠀0x464 •••• 1048', 654.39),
-  createData(4, '15 Nov, 2020', 'Bruce Springsteen', 'Long Branch, NJ', 'MDN ⠀0x296 •••• 1940', 212.79),
+  createData(0, 'just now', '0x756 •••• 2833', '0x296 •••• 1940', '0xda96290b0aee84d64f45a06e3e2ecf...', 312.44),
+  createData(1, '1 minute ago', '0x274 •••• 8394', '0x464 •••• 1048', '0xcb64cdadf8334b45a99c9130aa05ae...', 866.99),
+  createData(2, '6 minutes ago', '0x748 •••• 1938', '0x274 •••• 8394', '0x83e217df5fc63c0705ad9636557488...', 100.81),
+  createData(3, '30 minute ago', '0x464 •••• 1048', '0x756 •••• 2833', '0x67c83942ce300153cfe5010c7d0080...', 654.39),
+  createData(4, '2 months ago', '0x296 •••• 1940', '0x748 •••• 1938', '0x14e8f4296699060ce9461ad3193aaf...', 212.79),
 ];
 
 function preventDefault(event) {
@@ -35,15 +35,15 @@ export default function RecentOrders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent Transactions</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Transaction</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Age</TableCell>
+            <TableCell>From</TableCell>
+            <TableCell>To</TableCell>
+            <TableCell>Tx Hash</TableCell>
+            <TableCell align="right">Amount</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
