@@ -22,14 +22,14 @@ function Header() {
   web3.eth.getBlock("latest").then(res => console.log(res));
 
   // VET Bal
-  web3.eth.getBalance('0x1016C9662480336460122638AC261d2329a11F4B').then(res => {
-    setBal(res / 1000000000000000000);
+  web3.eth.getBalance('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+    setBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("VET >>" + res);
   })
 
   // Vtho Balance
-  web3.eth.getEnergy('0x1016C9662480336460122638AC261d2329a11F4B').then(res => {
-    setVthoBal(parseFloat(res / 1000000000000000000));
+  web3.eth.getEnergy('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+    setVthoBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("Vtho Balance >> " + res)
   })
 
@@ -95,6 +95,9 @@ function Header() {
               <span className="header__optionLineTwo header__basketCount">
                 {bal}
               </span>
+              <span className="header__optionLineTwo header__basketCount">
+                {vthoBal}
+              </span>              
           </div>
         </Link>        
       </div>

@@ -43,7 +43,8 @@ export default function Chart() {
   return (
     <React.Fragment>
       <Typography margin-bottom="10px" color="textPrimary" className={classes.depositContext}>
-        Welcome, {userWallet}
+        {/* Welcome, {userWallet} */}
+        Welcome, 0x1016C9662480336460122638AC261d2329a11F4B
       </Typography>      
       <Title>Market Cap</Title>
       <ResponsiveContainer>
@@ -68,7 +69,11 @@ export default function Chart() {
           </YAxis>
           <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
         </LineChart>
+        <div>
+        <div class="nomics-ticker-widget" data-name="VeChain Thor" data-base="VET" data-quote="KES"></div><script src="https://widget.nomics.com/embed.js"></script>
+        </div>
       </ResponsiveContainer>
     </React.Fragment>
   );
 }
+

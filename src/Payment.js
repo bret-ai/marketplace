@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from './axios';
 import { db } from "./firebase";
+import { thorify } from "thorify";
 
 function Payment() {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -16,25 +17,27 @@ function Payment() {
     const stripe = useStripe();
     const elements = useElements();
 
+    const [address, setAddress] = useState("");
+
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
 
-    useEffect(() => {
-        // generate the special stripe secret which allows us to charge a customer
-        const getClientSecret = async () => {
-            const response = await axios({
-                method: 'post',
-                // Stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-            });
-            setClientSecret(response.data.clientSecret)
-        }
+    // useEffect(() => {
+    //     // generate the special stripe secret which allows us to charge a customer
+    //     const getClientSecret = async () => {
+    //         const response = await axios({
+    //             method: 'post',
+    //             // Stripe expects the total in a currencies subunits
+    //             url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+    //         });
+    //         setClientSecret(response.data.clientSecret)
+    //     }
 
-        getClientSecret();
-    }, [basket])
+    //     getClientSecret();
+    // }, [basket])
 
     console.log('THE SECRET IS >>>', clientSecret)
     console.log('👱', user)
@@ -78,6 +81,25 @@ function Payment() {
 
     }
 
+    // 0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656
+    const send = (e) => {
+        e.preventDefault();
+
+        const Web3 = require("web3");
+        const web3 = thorify(new Web3(), "http://81.169.183.26");
+
+        // let newAcc = web3.eth.accounts.privateKeyToAccount('0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656');
+        // console.dir(newAcc);
+        // console.log("Account created >>>>>>>>>" + JSON.stringify(newAcc));
+    
+        web3.eth.accounts.wallet.add("0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656");
+        web3.eth.sendTransaction({
+            from: "0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA",
+            to: "0x1016C9662480336460122638AC261d2329a11F4B",
+            value: 1999999999999999998,
+        }).then(ret => console.log(ret));
+      };    
+
     const handleChange = event => {
         // Listen for changes in the CardElement
         // and display any errors as the customer types their card details
@@ -89,7 +111,7 @@ function Payment() {
         <div className='payment'>
             <div className='payment__container'>
                 <h1>
-                    Checkout (
+                    Proceed to pay (
                         <Link to="/checkout">{basket?.length} items</Link>
                         )
                 </h1>
@@ -98,19 +120,19 @@ function Payment() {
                 {/* Payment section - delivery address */}
                 <div className='payment__section'>
                     <div className='payment__title'>
-                        <h3>Delivery Address</h3>
+                        <h3>Buyer Address</h3>
                     </div>
                     <div className='payment__address'>
                         <p>{user?.email}</p>
                         <p>123 Simba Lane</p>
-                        <p>Nairobi, Kenya.</p>
+                        <p>Chiraq, Singapore.</p>
                     </div>
                 </div>
 
                 {/* Payment section - Review Items */}
                 <div className='payment__section'>
                     <div className='payment__title'>
-                        <h3>Review items and delivery</h3>
+                        <h3>Review items</h3>
                     </div>
                     <div className='payment__items'>
                         {basket.map(item => (
@@ -129,12 +151,21 @@ function Payment() {
                 {/* Payment section - Payment method */}
                 <div className='payment__section'>
                     <div className="payment__title">
-                        <h3>Payment Method</h3>
+                        <h3>Send signed transaction</h3>
                     </div>
                     <div className="payment__details">
                         {/* Stripe magic will go */}
+                        <form>
+                            <input
+                                type="text"
+                                value={address}
+                                onChange={(e) => setAddress(e.target.value)}
+                            />
+                            <button onClick={send}>Send</button>
+                        </form>
+                        
 
-                        <form onSubmit={handleSubmit}>
+                        {/* <form onSubmit={handleSubmit}>
                             <CardElement onChange={handleChange} />
 
                             <div className='payment__priceContainer'>
@@ -154,8 +185,8 @@ function Payment() {
                             </div>
 
                             {/* Errors */}
-                            {error && <div>{error}</div>}
-                        </form>
+                            {/* {error && <div>{error}</div>} */}
+                        {/* </form> */}
                     </div>
                 </div>
             </div>
