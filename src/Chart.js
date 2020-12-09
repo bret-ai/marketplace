@@ -5,6 +5,7 @@ import Title from './Title';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useStateValue } from './StateProvider';
+// import Nomics from './Nomics';
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -69,9 +70,8 @@ export default function Chart() {
           </YAxis>
           <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
         </LineChart>
-        <div>
-        <div class="nomics-ticker-widget" data-name="VeChain Thor" data-base="VET" data-quote="KES"></div><script src="https://widget.nomics.com/embed.js"></script>
-        </div>
+        {/* <Nomics /> */}
+        {/* <div class="nomics-ticker-widget"  src="https://widget.nomics.com/embed.js" data-name="VeChain Thor" data-base="VET" data-quote="KES" /> */}
       </ResponsiveContainer>
     </React.Fragment>
   );
