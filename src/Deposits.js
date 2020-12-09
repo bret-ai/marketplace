@@ -58,10 +58,10 @@ export default function Deposits() {
         {address}
       </Typography>       */}
       <Typography component="p" variant="h6">
-        {bal}<small>VET</small>
+        {!bal ? "------" : bal}<small>VET</small>
       </Typography>
       <Typography component="p" variant="h6">
-        {vthoBal}<small>Vtho</small>
+        {!vthoBal ? "------" : vthoBal}<small>Vtho</small>
       </Typography>      
       <div className="{classes.viewBalance}">
         <Link color="primary" href="#" onClick={preventDefault}>

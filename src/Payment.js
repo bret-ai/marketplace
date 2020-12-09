@@ -17,7 +17,7 @@ function Payment() {
     const stripe = useStripe();
     const elements = useElements();
 
-    const [address, setAddress] = useState("");
+    const [amount, setAmount] = useState("");
 
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
@@ -124,8 +124,8 @@ function Payment() {
                     </div>
                     <div className='payment__address'>
                         <p>{user?.email}</p>
-                        <p>123 Simba Lane</p>
-                        <p>Chiraq, Singapore.</p>
+                        <p>0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA</p>
+                        {/* <p>Chiraq, Singapore.</p> */}
                     </div>
                 </div>
 
@@ -149,6 +149,15 @@ function Payment() {
 
 
                 {/* Payment section - Payment method */}
+                <div className="payment__section">
+                    <div className='payment__title'>
+                            <h3>Seller Address</h3>
+                        </div>
+                        <div className='payment__address'>
+                            <p>0x1016C9662480336460122638AC261d2329a11F4B</p>
+                            {/* <p>Chiraq, Singapore.</p> */}
+                        </div>                    
+                </div>
                 <div className='payment__section'>
                     <div className="payment__title">
                         <h3>Send signed transaction</h3>
@@ -158,8 +167,8 @@ function Payment() {
                         <form>
                             <input
                                 type="text"
-                                value={address}
-                                onChange={(e) => setAddress(e.target.value)}
+                                value={amount}
+                                onChange={(e) => setAmount(e.target.value)}
                             />
                             <button onClick={send}>Send</button>
                         </form>

@@ -14,7 +14,7 @@ function Home() {
         <div className="home__row">
           <Product
             title="Bixbyite & Gem Pink Topaz"
-            price={59.99}
+            price={19.99}
             rating={5}
             id="1234567891"
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"

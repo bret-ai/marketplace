@@ -16,7 +16,7 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((auth) => {
-        history.push("/");
+        history.push("/account");
       })
       .catch((error) => alert(error.message));
   };

@@ -19,15 +19,13 @@ function Checkout() {
   web3.eth.getBlock("latest").then(res => console.log(res));
 
   // VET Bal
-  web3.eth.getBalance('0x1016C9662480336460122638AC261d2329a11F4B').then(res => {
-    setBal(res / 1000000000000000000);
-    console.log("VET >>" + res);
+  web3.eth.getBalance('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+    setBal(res);
   })
 
   // Vtho Balance
-  web3.eth.getEnergy('0x1016C9662480336460122638AC261d2329a11F4B').then(res => {
-    setVthoBal(parseFloat(res / 1000000000000000000));
-    console.log("Vtho Balance >> " + res)
+  web3.eth.getEnergy('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+    setVthoBal(parseFloat(res));
   })  
 
   return (
@@ -40,7 +38,8 @@ function Checkout() {
         />
         <div>
           <h3>Hello, {user?.email}</h3>
-          <h3>WalletId: {userWallet}</h3>
+          {/* <h3>WalletId: {userWallet}</h3> */}
+          <h3>WalletId: 0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA</h3>
           <p>Bal: {bal}</p>
           <p>Gas: {vthoBal}</p>
           <h2 className="checkout__title">Madini MarketPlace Powered by Vechain</h2>
