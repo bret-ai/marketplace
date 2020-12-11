@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
+import { thorify } from "thorify";
 
 // Generate Order Data
 function createData(id, date, name, shipTo, transaction, amount) {
@@ -33,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RecentOrders() {
   const classes = useStyles();
+
+  const Web3 = require("web3");
+  const web3 = thorify(new Web3(), "http://81.169.183.26");
+
+  
+
   return (
     <React.Fragment>
       <Title>Recent Transactions</Title>

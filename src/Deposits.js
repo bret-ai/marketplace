@@ -27,19 +27,26 @@ export default function Deposits() {
   const Web3 = require("web3");
   const web3 = thorify(new Web3(), "http://81.169.183.26");
   // let address = userWallet;
-  let address = "0x1016C9662480336460122638AC261d2329a11F4B";
+  let addresss = "0x1016C9662480336460122638AC261d2329a11F4B";
 
 
   web3.eth.getBlock("latest").then(res => console.log(res));
 
   // VET Bal
-  web3.eth.getBalance(address).then(res => {
+  web3.eth.getBalance(addresss).then(res => {
     setBal(parseFloat(res / 1000000000000000000).toFixed(4));
     console.log("VET >>" + res);
   })
 
+  web3.eth.getPastLogs({
+    address: "0x1016C9662480336460122638AC261d2329a11F4B",
+    topic: [null]
+  }).then(result => {
+    console.dir(result)
+  })
+
   // Vtho Balance
-  web3.eth.getEnergy(address).then(res => {
+  web3.eth.getEnergy(addresss).then(res => {
     setVthoBal(parseFloat(res / 1000000000000000000).toFixed(4));
     console.log("Vtho Balance >> " + res)
   })

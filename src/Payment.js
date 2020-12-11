@@ -24,6 +24,7 @@ function Payment() {
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
+    const [hash, setHash] = useState();
 
     // useEffect(() => {
     //     // generate the special stripe secret which allows us to charge a customer
@@ -91,13 +92,23 @@ function Payment() {
         // let newAcc = web3.eth.accounts.privateKeyToAccount('0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656');
         // console.dir(newAcc);
         // console.log("Account created >>>>>>>>>" + JSON.stringify(newAcc));
-    
+
         web3.eth.accounts.wallet.add("0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656");
         web3.eth.sendTransaction({
-            from: "0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA",
-            to: "0x1016C9662480336460122638AC261d2329a11F4B",
-            value: 1999999999999999998,
-        }).then(ret => console.log(ret));
+                from: "0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA",
+                to: "0x1016C9662480336460122638AC261d2329a11F4B",
+                value: 1999999999999999998,
+            }).then((ret) => {
+                setHash(ret.blockHash);
+                console.log(ret);
+            });
+
+        // web3.eth.accounts.wallet.add("0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656");
+        // web3.eth.sendTransaction({
+        //     from: "0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA",
+        //     to: "0x1016C9662480336460122638AC261d2329a11F4B",
+        //     value: 1999999999999999998,
+        // }).then(ret => console.log(ret));
       };    
 
     const handleChange = event => {
@@ -165,11 +176,12 @@ function Payment() {
                     <div className="payment__details">
                         {/* Stripe magic will go */}
                         <form>
-                            <input
+                            {/* <input
                                 type="text"
                                 value={amount}
                                 onChange={(e) => setAmount(e.target.value)}
-                            />
+                            /> */}
+                            <p>Tx:{hash}</p>
                             <button onClick={send}>Send</button>
                         </form>
                         
