@@ -7,6 +7,8 @@ import StoreIcon from '@material-ui/icons/Store';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import AccountTreeIcon from '@material-ui/icons/AccountTree';
 import LayersIcon from '@material-ui/icons/Layers';
+// import Link from '@material-ui/core/Link';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 export const mainListItems = (
@@ -17,12 +19,14 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <StoreIcon />
-      </ListItemIcon>
-      <ListItemText primary="Marketplace" />
-    </ListItem>
+    <Link to="/market">
+      <ListItem button>
+        <ListItemIcon>
+          <StoreIcon />
+        </ListItemIcon>
+        <ListItemText primary="Marketplace" />
+      </ListItem>
+    </Link>
     <ListItem button>
       <ListItemIcon>
         <LoyaltyIcon />

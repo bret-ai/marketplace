@@ -69,6 +69,7 @@ export default function SignUp() {
       .createUserWithEmailAndPassword(email, password)
       .then((auth) => {
         // it successfully created a new user with email and password
+        
         if (auth) {
           dispatch({
               type: "SET_WALLETID",

@@ -8,12 +8,12 @@ import SignInSide from "./SignInSide";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./Orders";
 import Dashboard from "./Dashboard";
 import SignUp from "./SignUp";
 import Marketplace from "./Marketplace";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import Purchase from "./Purchase";
 
 const promise = loadStripe(
@@ -57,9 +57,6 @@ function App() {
           </Route>
           <Route path="/login">
             <SignInSide />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
           </Route>          
           <Route path="/checkout">
             <Header />
@@ -68,9 +65,13 @@ function App() {
           <Route path="/account">
             <Dashboard />
           </Route>
+          <Route path="/market">
+            <Header />
+            <Home />
+          </Route>          
           <Route path="/marketplace">
             <Marketplace />
-          </Route>
+          </Route>          
           {/* <Route path="/buy">
             <Purchase />
           </Route> */}
@@ -81,9 +82,8 @@ function App() {
             </Elements>
           </Route>
           <Route path="/">
-            <Header />
-            <Home />
-          </Route>
+            <SignUp />
+          </Route>          
         </Switch>
       </div>
     </Router>

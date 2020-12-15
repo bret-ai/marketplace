@@ -34,7 +34,7 @@ function Home() {
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"
           />
         </div>
-        <div className="home__row">
+        {/* <div className="home__row">
           <Product
             title="Bixbyite & Gem Pink Topaz"
             price={32.99}
@@ -81,8 +81,9 @@ function Home() {
             id="1234567899"
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"
           />
-        </div>
+        </div> */}
       </div>
+      <p>NOTE: A different wallet address has been used for the Marketplace context, just to demonstrate a signed transaction. Click on Buy and Proceed to pay by clicking on the basket icon on the header</p>
     </div>
   );
 }

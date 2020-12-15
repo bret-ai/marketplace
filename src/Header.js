@@ -17,18 +17,19 @@ function Header() {
 
   const Web3 = require("web3");
   const web3 = thorify(new Web3(), "http://81.169.183.26");
-  // let address = userWallet;  
+  // let address = userWallet;
+  // 0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA
 
   web3.eth.getBlock("latest").then(res => console.log(res));
 
   // VET Bal
-  web3.eth.getBalance('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+  web3.eth.getBalance("0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA").then(res => {
     setBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("VET >>" + res);
   })
 
   // Vtho Balance
-  web3.eth.getEnergy('0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA').then(res => {
+  web3.eth.getEnergy("0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA").then(res => {
     setVthoBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("Vtho Balance >> " + res)
   })
@@ -69,7 +70,7 @@ function Header() {
           </div>
         </Link>
 
-        <Link to="/orders">
+        {/* <Link to="/orders">
           <div className="header__option">
             <span className="header__optionLineOne">New</span>
             <span className="header__optionLineTwo">Sale</span>
@@ -79,7 +80,7 @@ function Header() {
         <div className="header__option">
           <span className="header__optionLineOne">Market</span>
           <span className="header__optionLineTwo">MarketPlace</span>
-        </div>
+        </div> */}
 
         <Link to="/checkout">
           <div className="header__optionBasket">

@@ -1,3 +1,4 @@
+import { Link } from "@material-ui/core";
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
@@ -38,7 +39,8 @@ function Product({ id, title, image, price, rating }) {
 
       <img src={image} alt="" />
 
-      <button onClick={addToBasket}>Buy</button>
+      <button onClick={addToBasket} href="/checkout">Buy</button>
+      {/* <Link */}
     </div>
   );
 }

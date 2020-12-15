@@ -44,8 +44,8 @@ export default function Chart() {
   return (
     <React.Fragment>
       <Typography margin-bottom="10px" color="textPrimary" className={classes.depositContext}>
-        {/* Welcome, {userWallet} */}
-        Welcome, 0x1016C9662480336460122638AC261d2329a11F4B
+        Welcome, {userWallet}
+        {/* Welcome, 0x1016C9662480336460122638AC261d2329a11F4B */}
       </Typography>      
       <Title>Market Cap</Title>
       <ResponsiveContainer>

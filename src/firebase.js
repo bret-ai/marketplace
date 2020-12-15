@@ -11,6 +11,18 @@ const firebaseConfig = {
   measurementId: "G-SGNY9GFRZ6"
 };
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAWzN8yqneKXOCfIiPGw-ECR9_i6apm-VA",
+//   authDomain: "madini-marketplace.firebaseapp.com",
+//   databaseURL: "https://madini-marketplace.firebaseio.com",
+//   projectId: "madini-marketplace",
+//   storageBucket: "madini-marketplace.appspot.com",
+//   messagingSenderId: "543954576701",
+//   appId: "1:543954576701:web:740514a7927feed8c61154",
+//   measurementId: "G-PFE3XSCQ4Q"
+// };
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
