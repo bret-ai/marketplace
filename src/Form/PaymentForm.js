@@ -9,11 +9,11 @@ export default function PaymentForm() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Payment method
+        Pay
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" />
+          <TextField required id="cardName" label="Account Address" fullWidth autoComplete="cc-name" />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField

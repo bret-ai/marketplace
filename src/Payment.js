@@ -11,7 +11,7 @@ import { db } from "./firebase";
 import { thorify } from "thorify";
 
 function Payment() {
-    const [{ basket, user }, dispatch] = useStateValue();
+    const [{ basket, user, userWallet }, dispatch] = useStateValue();
     const history = useHistory();
 
     const stripe = useStripe();
@@ -111,22 +111,24 @@ function Payment() {
         event.preventDefault();
 
         const Web3 = require("web3");
-        const web3 = thorify(new Web3(), "http://81.169.183.26");
+        const web3 = thorify(new Web3(), "https://explore-testnet.veblocks.net");
 
         // let newAcc = web3.eth.accounts.privateKeyToAccount('0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656');
         // console.dir(newAcc);
         // console.log("Account created >>>>>>>>>" + JSON.stringify(newAcc));
 
-        await web3.eth.accounts.wallet.add("0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656");
+        await web3.eth.accounts.wallet.add("0x349bd6e84b57183c9056817dde0db72bcb0e709c989109aeaa4e9ee0b3b9ad4f");
         await web3.eth.sendTransaction({
-                from: "0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA",
-                to: "0x1016C9662480336460122638AC261d2329a11F4B",
+                from: "0x5F5998Ac3031032Fab563c90c78BFc575D03D604",
+                to: userWallet,
                 value: 1999999999999999998,
             }).then((ret) => {
                 setHash(ret.blockHash);
                 settxHash(ret.transactionHash);
                 setgasUsed(ret.gasUsed);
                 console.log(ret);
+            }).catch((error) => {
+                alert(error);
             });
 
         // web3.eth.accounts.wallet.add("0x18b94b9a85e41919bbe7b1f44d44646ab9449abae27e84f5565184aef7e75656");
@@ -161,7 +163,7 @@ function Payment() {
                     </div>
                     <div className='payment__address'>
                         <p>{user?.email}</p>
-                        <p>0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA</p>
+                        <p>0x5F5998Ac3031032Fab563c90c78BFc575D03D604</p>
                         {/* <p>Chiraq, Singapore.</p> */}
                     </div>
                 </div>
@@ -191,7 +193,7 @@ function Payment() {
                             <h3>Seller Address</h3>
                         </div>
                         <div className='payment__address'>
-                            <p>0x1016C9662480336460122638AC261d2329a11F4B</p>
+                            <p>{userWallet}</p>
                             {/* <p>Chiraq, Singapore.</p> */}
                         </div>                    
                 </div>

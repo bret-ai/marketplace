@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Checkout from "./Checkout";
+import Checkouts from "./Checkouts";
 import SignInSide from "./SignInSide";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
@@ -14,7 +14,7 @@ import SignUp from "./SignUp";
 import Marketplace from "./Marketplace";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import Purchase from "./Purchase";
+import Checkout from "./Form/Checkout";
 
 const promise = loadStripe(
   "pk_test_51HQXcNBgXXR504kqVkiIAuJBQhqQvCgqXxQuTOmCeXBA6HTdIdPJgWSeRHeYkZ1FH35NvvraVQGLA6g4YsyigYOt00vUI1F1yh"
@@ -60,7 +60,7 @@ function App() {
           </Route>          
           <Route path="/checkout">
             <Header />
-            <Checkout />
+            <Checkouts />
           </Route>
           <Route path="/account">
             <Dashboard />
@@ -72,9 +72,9 @@ function App() {
           <Route path="/marketplace">
             <Marketplace />
           </Route>          
-          {/* <Route path="/buy">
-            <Purchase />
-          </Route> */}
+          <Route path="/buy">
+            <Checkout />
+          </Route>
           <Route path="/payment">
             <Header />
             <Elements stripe={promise}>

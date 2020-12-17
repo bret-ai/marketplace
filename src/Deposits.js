@@ -26,7 +26,7 @@ export default function Deposits() {
   useEffect(() => {
     async function fetchThor() {
       const Web3 = require("web3");
-      const web3 = thorify(new Web3(), "http://81.169.183.26");
+      const web3 = thorify(new Web3(), "https://explore-testnet.veblocks.net");
       let address = userWallet;
       // let addresss = "0x1016C9662480336460122638AC261d2329a11F4B";
 

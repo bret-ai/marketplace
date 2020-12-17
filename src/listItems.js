@@ -19,7 +19,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <Link to="/market">
+    <Link to="/buy">
       <ListItem button>
         <ListItemIcon>
           <StoreIcon />

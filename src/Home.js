@@ -11,7 +11,7 @@ function Home() {
           src="https://www.madiniafricainvest.com/wp-content/uploads/2020/11/mine02.jpg"
           alt=""
         />
-        <div className="home__row">
+        {/* <div className="home__row">
           <Product
             title="Bixbyite & Gem Pink Topaz"
             price={19.99}
@@ -33,24 +33,24 @@ function Home() {
             id="1234567893"
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"
           />
-        </div>
-        {/* <div className="home__row">
+        </div> */}
+        <div className="home__row">
           <Product
             title="Bixbyite & Gem Pink Topaz"
-            price={32.99}
+            price={1.99}
             rating={5}
             id="1234567894"
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"
           />
           <Product
             title="Bixbyite & Gem Pink Topaz"
-            price={6.99}
+            price={1.99}
             rating={3}
             id="1234567895"
             image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"
           />
         </div>
-        <div className="home__row">
+        {/* <div className="home__row">
           <Product
             title="Bixbyite & Gem Pink Topaz"
             price={6.57}
@@ -83,7 +83,7 @@ function Home() {
           />
         </div> */}
       </div>
-      <p>NOTE: A different wallet address has been used for the Marketplace context, just to demonstrate a signed transaction. Click on Buy and Proceed to pay by clicking on the basket icon on the header</p>
+      <p className="text">NOTE: A different wallet address has been used for the Marketplace context, just to demonstrate a signed transaction. Click on Buy and Proceed to pay by clicking on the basket icon on the header</p>
     </div>
   );
 }

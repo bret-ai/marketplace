@@ -16,20 +16,20 @@ function Header() {
   const [vthoBal, setVthoBal] = useState('');
 
   const Web3 = require("web3");
-  const web3 = thorify(new Web3(), "http://81.169.183.26");
-  // let address = userWallet;
+  const web3 = thorify(new Web3(), "https://explore-testnet.veblocks.net");
+  let address = userWallet;
   // 0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA
 
   web3.eth.getBlock("latest").then(res => console.log(res));
 
   // VET Bal
-  web3.eth.getBalance("0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA").then(res => {
+  web3.eth.getBalance(address).then(res => {
     setBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("VET >>" + res);
   })
 
   // Vtho Balance
-  web3.eth.getEnergy("0xA6BbC02898a9b1B95D449f3E92D615431fA9D0AA").then(res => {
+  web3.eth.getEnergy(address).then(res => {
     setVthoBal(parseFloat(res / 1000000000000000000).toFixed(1));
     console.log("Vtho Balance >> " + res)
   })
@@ -42,7 +42,7 @@ function Header() {
 
   return (
     <div className="header">
-      <Link to="/">
+      <Link to="/market">
         <div className="header__logo">
           <h3>Marketplace</h3>
         </div>
@@ -59,7 +59,7 @@ function Header() {
       </div> */}
 
       <div className="header__nav">
-        <Link to={!user && "/login"}>
+        {/* <Link to={!user && "/login"}>
           <div onClick={handleAuthenticaton} className="header__option">
             <span className="header__optionLineOne">
               Hello {!user ? "Guest" : user.email}
@@ -68,7 +68,7 @@ function Header() {
               {user ? "Sign Out" : "Sign In"}
             </span>
           </div>
-        </Link>
+        </Link> */}
 
         {/* <Link to="/orders">
           <div className="header__option">

@@ -6,7 +6,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import Wallet from "./Wallet";
 import { thorify } from "thorify";
 
-function Checkout() {
+function Checkouts() {
   const [{ basket, user, userWallet }, dispatch] = useStateValue();
 
   const [bal, setBal] = useState('');
@@ -59,13 +59,14 @@ function Checkout() {
           {/* <CheckoutProduct /> */}
           {/* <CheckoutProduct /> */}
         </div>
+        <Subtotal />
       </div>
       <div className="checkout__right">
-        <Subtotal />
+        {/* <Subtotal /> */}
         {/* <Wallet />         */}
       </div>
     </div>
   );
 }
 
-export default Checkout;
+export default Checkouts;

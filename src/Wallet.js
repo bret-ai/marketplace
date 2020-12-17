@@ -1,42 +1,55 @@
-import React, { useState } from 'react';
-import './Wallet.css';
-import { useStateValue } from "./StateProvider";
-
-function Wallet() {
-
-    const [walletAddress, setWalletAddress] = useState("");
-    
-
-    const [{ }, dispatch] = useStateValue();
+// import React, { Component } from 'react';
+// import { thorify } from "thorify";
+// import './App.css';
+// import logo from './logo.svg';
 
 
-    const walletId = (e) => {
-        e.preventDefault();
-        dispatch({
-        type: "SET_WALLETID",
-        userWallet: walletAddress,
-        });
-    }
+// class App extends Component {
+//   componentWillMount() {
+//     this.loadBlockchainData()
+//   }
 
-    return (
-        <div className="wallet">
-            <div className="wallet__container">
-                {/* <h1>Please enter your Wallet Address</h1> */}
-                <form>
-                    <h5>Please Enter Wallet Address</h5>
-                        <input
-                            type="text"
-                            value={walletAddress}
-                            onChange={(e) => setWalletAddress(e.target.value)}
-                        />
+//   async loadBlockchainData() {
+//     const Web3 = require("web3");    
+//     const web3 = await thorify(new Web3(), "https://explore-testnet.veblocks.net");
+//     web3.eth.getBalance("0x90D83737d9aC9f12489Ad306761492397DF35927").then(res => {
+//       console.log(res);
+//       this.setState({ accountBal: (res/1000000000000000000).toFixed(2) })
+//     })
+//     web3.eth.getEnergy("0x90D83737d9aC9f12489Ad306761492397DF35927").then(result => {
+//       console.log(result)
+//       this.setState({ accountGas: (result/1000000000000000000).toFixed(2) })
+//     })
 
-                        <button onClick={walletId} className="wallet__button">
-                        Create your Madini Account
-                        </button>                    
-                </form>
-            </div>                
-        </div>
-    )
-}
+//     this.setState({ loading: false })
+//   }
 
-export default Wallet;
+//   constructor(props) {
+//     super(props)
+//     this.state = {
+//       accountBal: '',
+//       accountGas: '',
+//       loading: true
+//     }
+//   }
+
+//   render() {
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <img src={logo} className="App-logo" alt="logo" />
+//           <p>
+//             Marketplace Prototype.
+//           </p>
+//           <div className="account__info">
+//             <h5>Your accounct info</h5>
+//             <p>VET: {this.state.accountBal}</p>
+//             <p>Vtho: {this.state.accountGas}</p>
+//           </div>        
+//         </header>
+//     </div>
+//     );
+//   }
+// }
+
+// export default App;
