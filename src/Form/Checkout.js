@@ -13,13 +13,17 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import IconButton from "@material-ui/core/IconButton";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import ContactSupportOutlinedIcon from "@material-ui/icons/ContactSupportOutlined";
+import Badge from "@material-ui/core/Badge";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      {' © '}
+      <Link color="inherit" href="/account">
+        Madini Marketplace
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -30,7 +34,19 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
+    background: "linear-gradient(45deg, #333 30%, #FF8E53 90%)",
+    color: "white"
   },
+  toolbarIcon: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
+    ...theme.mixins.toolbar,
+  },
+  title: {
+    flexGrow: 1,
+  },    
   layout: {
     width: 'auto',
     marginLeft: theme.spacing(2),
@@ -64,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Create Account', 'Send Signed Tx', 'Review your order'];
+const steps = ['Product', 'Send Signed Tx', 'Review your order'];
 
 function getStepContent(step) {
   switch (step) {
@@ -96,9 +112,19 @@ export default function Checkout() {
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
+          <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+            Madini Marketplace
           </Typography>
+          <IconButton color="inherit">
+            <Badge color="secondary">
+              <AccountCircleIcon />
+            </Badge>
+          </IconButton>
+          <IconButton color="inherit">
+            <Badge color="secondary">
+              <ContactSupportOutlinedIcon />
+            </Badge>
+          </IconButton>          
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
@@ -120,8 +146,7 @@ export default function Checkout() {
                   Thank you for your order.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Your order number is #2001539. We have emailed your order confirmation.
                 </Typography>
               </React.Fragment>
             ) : (
@@ -139,7 +164,7 @@ export default function Checkout() {
                     onClick={handleNext}
                     className={classes.button}
                   >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                    {activeStep === steps.length - 1 ? 'Done' : 'Next'}
                   </Button>
                 </div>
               </React.Fragment>

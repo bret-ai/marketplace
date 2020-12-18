@@ -14,8 +14,8 @@ function Payment() {
     const [{ basket, user, userWallet }, dispatch] = useStateValue();
     const history = useHistory();
 
-    const stripe = useStripe();
-    const elements = useElements();
+    // const stripe = useStripe();
+    // const elements = useElements();
 
     const [amount, setAmount] = useState("");
 
@@ -139,12 +139,12 @@ function Payment() {
         // }).then(ret => console.log(ret));
       };    
 
-    const handleChange = event => {
-        // Listen for changes in the CardElement
-        // and display any errors as the customer types their card details
-        setDisabled(event.empty);
-        setError(event.error ? event.error.message : "");
-    }
+    // const handleChange = event => {
+    //     // Listen for changes in the CardElement
+    //     // and display any errors as the customer types their card details
+    //     setDisabled(event.empty);
+    //     setError(event.error ? event.error.message : "");
+    // }
 
     return (
         <div className='payment'>

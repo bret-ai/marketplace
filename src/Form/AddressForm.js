@@ -5,15 +5,16 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import { Button } from '@material-ui/core';
+import Product from "../Product";
 
 export default function AddressForm() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Create Wallet
+        Review Product
       </Typography>
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           <TextField
             required
             id="firstName"
@@ -42,9 +43,14 @@ export default function AddressForm() {
             fullWidth
             autoComplete="shipping address-line1"
           />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12}>
-          <Button
+          <Product
+            title="Bixbyite & Gem Pink Topaz"
+            price={1.99}
+            rating={3}
+            id="12634567895"
+            image="https://i2.wp.com/www.rockygems.com/wp-content/uploads/2020/11/m191129_15b.jpg?resize=300%2C300&ssl=1"          
           />
         </Grid>
         {/* <Grid item xs={12} sm={6}>

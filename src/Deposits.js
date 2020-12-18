@@ -34,13 +34,13 @@ export default function Deposits() {
       await web3.eth.getBalance(address).then((res) => {
         setBal(parseFloat(res / 1000000000000000000).toFixed(4));
         console.log("VET >>" + res);
-      });
+      }).catch((err) => alert(err));
 
       // Vtho Balance
       await web3.eth.getEnergy(address).then((res) => {
         setVthoBal(parseFloat(res / 1000000000000000000).toFixed(4));
         console.log("Vtho Balance >> " + res);
-      });
+      }).catch((err) => alert(err));
     }
 
     fetchThor();

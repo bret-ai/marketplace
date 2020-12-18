@@ -2,6 +2,7 @@ export const initialState = {
   basket: [],
   user: null,
   userWallet: "",
+  txData: null,
 };
 
 // Selector
@@ -53,6 +54,12 @@ const reducer = (state, action) => {
           ...state,
           userWallet: action.userWallet,
         };
+
+      case "SET TX":
+        return {
+          ...state,
+          txData: action.txData,
+        };        
 
     default:
       return state;

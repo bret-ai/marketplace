@@ -16,9 +16,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Checkout from "./Form/Checkout";
 
-const promise = loadStripe(
-  "pk_test_51HQXcNBgXXR504kqVkiIAuJBQhqQvCgqXxQuTOmCeXBA6HTdIdPJgWSeRHeYkZ1FH35NvvraVQGLA6g4YsyigYOt00vUI1F1yh"
-);
+// const promise = loadStripe(
+//   "pk_test_51HQXcNBgXXR504kqVkiIAuJBQhqQvCgqXxQuTOmCeXBA6HTdIdPJgWSeRHeYkZ1FH35NvvraVQGLA6g4YsyigYOt00vUI1F1yh"
+// );
 
 function App() {
   const [{ }, dispatch] = useStateValue();
@@ -75,12 +75,12 @@ function App() {
           <Route path="/buy">
             <Checkout />
           </Route>
-          <Route path="/payment">
+          {/* <Route path="/payment">
             <Header />
             <Elements stripe={promise}>
               <Payment />
             </Elements>
-          </Route>
+          </Route> */}
           <Route path="/">
             <SignUp />
           </Route>          

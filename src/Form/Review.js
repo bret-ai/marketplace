@@ -5,20 +5,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import { useStateValue } from '../StateProvider';
+
 
 const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-const addresses = ['1 Material-UI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Bixbyite & Gem Pink Topaz', desc: 'A nice thing from Congo', price: '𐆗1.99' },
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +27,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Review() {
   const classes = useStyles();
 
+  const [{ txData, user }, dispatch] = useStateValue();
+
+  const payments = [
+    { name: 'Token', detail: 'VET' },
+    { name: 'Buyer', detail: user?.email },
+    { name: 'WalletId', detail: user?.displayName },
+    { name: 'Sellers Address', detail: '0x1016C9662480336460122638AC261d2329a11F4B' },
+    { name: 'Tx Hash', detail: txData?.txHash },
+    { name: 'gasPayer', detail: txData?.gasPayer },
+    { name: 'Gas', detail: txData?.gasUsed },
+  ];  
+
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -51,18 +54,18 @@ export default function Review() {
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $34.06
+            𐆗1.99
           </Typography>
         </ListItem>
       </List>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+        {/* <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Shipping
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
-        </Grid>
+        </Grid> */}
         <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Payment details
